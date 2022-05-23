@@ -1,10 +1,11 @@
+import { Route } from 'react-router-dom';
 import './App.css';
+import Header from './Page/Share/Header/Header';
 
 function App() {
   return (
     <div>
-      <h1 className='text-primary'>My name is monirul islam</h1>
-      <button className="btn">Button</button>
+      <Header></Header>
     </div>
   );
 }
