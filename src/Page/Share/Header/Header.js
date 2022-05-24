@@ -1,12 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from './../../../Firebase-init';
+import { signOut } from 'firebase/auth';
 const Header = () => {
+    const [user] = useAuthState(auth);
+    const logout = () => {
+        signOut(auth);
+    };
     const menuItems = <>
         <li><Link to='/'>Home</Link></li>
-        <li><Link to='/'>Blogs</Link></li>
+        <li><Link to='/blogs'>Blogs</Link></li>
         <li><Link to='/'>My Portfolio</Link></li>
-        <li><Link to='/login'>Log in</Link></li>
+        {!user && <li><Link to='/login'>Log in</Link></li>}
     </>
     return (
         <div>
@@ -28,7 +34,7 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <button className="btn btn-sm">Get started</button>
+                    {user && <button onClick={logout} className="btn btn-sm">Log out</button>}
                 </div>
             </div>
         </div>

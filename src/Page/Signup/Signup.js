@@ -1,10 +1,9 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../Firebase-init';
-import { async } from '@firebase/util';
-
+import Loading from '../Loading/Loading';
 const Signup = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
     const [signInWithGoogle, gouser, goloading, goerror] = useSignInWithGoogle(auth);
@@ -15,9 +14,14 @@ const Signup = () => {
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
     const [updateProfile, updating, Updateerror] = useUpdateProfile(auth);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
+    if (loading || goloading) {
+        return <Loading></Loading>
+    }
     if (user || gouser) {
-        console.log(user);
-        console.log(gouser);
+        navigate(from, { replace: true });
     }
     const onSubmit = async (data) => {
         console.log(data)
@@ -61,8 +65,6 @@ const Signup = () => {
                             </span>
                         </label>
                         <p className='text-red-700'>{error?.message}{goerror?.message}</p>
-                        {loading && <p>Loading...</p>}
-                        {goloading && <p>Loading ...</p>}
                         <input type="submit" value="Sign up" class="input input-bordered btn  btn-active mt-3 mb-4 w-full max-w-xs" />
                         <Link className='text-blue-500 text-xl' to="/login">Already have an account</Link>
                     </form>
