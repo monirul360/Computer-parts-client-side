@@ -24,7 +24,6 @@ const Signup = () => {
         navigate(from, { replace: true });
     }
     const onSubmit = async (data) => {
-        console.log(data)
         const displayName = data.name;
         const email = data.email;
         const password = data.password;

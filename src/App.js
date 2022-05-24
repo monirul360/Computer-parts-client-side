@@ -7,7 +7,11 @@ import Private from './Page/Private/Private';
 import Footer from './Page/Share/Footer/Footer';
 import Header from './Page/Share/Header/Header';
 import Signup from './Page/Signup/Signup';
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Dashboard from './Page/Dashboard/Dashboard';
+import Myorder from './Page/Dashboard/Myorder/Myorder';
+import AddProduct from './Page/Dashboard/AddProduct/AddProduct';
 function App() {
   return (
     <div>
@@ -20,8 +24,17 @@ function App() {
         <Route path='/blogs' element={<Private>
           <Blogs></Blogs>
         </Private>}></Route>
+        <Route path='dashboard' element={
+          <Private>
+            <Dashboard></Dashboard>
+          </Private>
+        }>
+          <Route index element={<Myorder></Myorder>}></Route>
+          <Route path='addproduct' element={<AddProduct></AddProduct>}></Route>
+        </Route>
       </Routes>
       <Footer></Footer>
+      <ToastContainer />
     </div>
   );
 }
