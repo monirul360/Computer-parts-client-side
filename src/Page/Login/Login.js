@@ -21,8 +21,8 @@ const Login = () => {
                             <span className="label-text">Password</span>
                         </label>
                         <input type="password" placeholder="Password" className="input input-bordered w-full max-w-xs" {...register("password", { required: true })} />
-                        <input type="submit" value="Log in" class="input input-bordered btn  btn-active mt-3 w-full max-w-xs" />
-                        <Link className='btn btn-sm mt-3 btn-primary' to="/signup">Create new Account</Link>
+                        <input type="submit" value="Log in" class="input input-bordered btn  btn-active mt-3 mb-4 w-full max-w-xs" />
+                        <Link className='text-blue-500 text-xl' to="/signup">Create new Account</Link>
                     </form>
                     <div class="divider">OR</div>
                     <button class="btn btn-secondary">Sign with google</button>
