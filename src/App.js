@@ -4,6 +4,7 @@ import Blogs from './Page/Blogs/Blogs';
 import Home from './Page/Home/Home/Home';
 import Login from './Page/Login/Login';
 import Private from './Page/Private/Private';
+import Footer from './Page/Share/Footer/Footer';
 import Header from './Page/Share/Header/Header';
 import Signup from './Page/Signup/Signup';
 
@@ -20,6 +21,7 @@ function App() {
           <Blogs></Blogs>
         </Private>}></Route>
       </Routes>
+      <Footer></Footer>
     </div>
   );
 }
