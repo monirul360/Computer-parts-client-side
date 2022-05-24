@@ -1,11 +1,51 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-
+import { toast } from 'react-toastify';
 const AddProduct = () => {
-    const { register, formState: { errors }, handleSubmit } = useForm();
+    const { register, formState: { errors }, handleSubmit, reset } = useForm();
+    const imageStorageKey = '9903ff48ea7130ca4de8dc43c159c096';
     const onSubmit = async (data) => {
-        console.log(data);
-        data.reset();
+        const image = data.image[0];
+        const formData = new FormData();
+        formData.append('image', image);
+        const url = `https://api.imgbb.com/1/upload?key=${imageStorageKey}`;
+        fetch(url, {
+            method: 'POST',
+            body: formData
+        })
+            .then(res => res.json())
+            .then(result => {
+                if (result.success) {
+                    const img = result.data.url;
+                    const product = {
+                        name: data.name,
+                        description: data.description,
+                        quantity: data.quantity,
+                        available: data.available,
+                        price: data.price,
+                        image: img,
+                    }
+                    // send to your database 
+                    fetch('http://localhost:5000/perts', {
+                        method: 'POST',
+                        headers: {
+                            'content-type': 'application/json',
+                            authorization: `${localStorage.getItem('AccessToken')}`
+                        },
+                        body: JSON.stringify(product)
+                    })
+                        .then(res => res.json())
+                        .then(inserted => {
+                            if (inserted.insertedId) {
+                                toast.success('Add Product successfull');
+                                reset();
+                            }
+                            else {
+                                toast.error('Failed to Add Product');
+                            }
+                        })
+                }
+            })
     }
     return (
         <div>
