@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Partsrow = ({ parts }) => {
-    const { name, description, quantity, available, price, image } = parts;
+    const { _id, name, description, quantity, available, price, image } = parts;
     const sliceDes = description.slice(0, 100);
     return (
         <div>
@@ -15,7 +15,7 @@ const Partsrow = ({ parts }) => {
                     <p>Available : {available}</p>
                     <p className='text-red-600 font-bold'>Price : ${price}</p>
                     <div class="card-actions justify-end">
-                        <Link to='/purchase/id' class="btn btn-primary btn-sm">Buy Now</Link>
+                        <Link to={`/purchase/${_id}`} class="btn btn-primary btn-sm">Buy Now</Link>
                     </div>
                 </div>
             </div>
