@@ -1,6 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import Blogs from './Page/Blogs/Blogs';
 import Home from './Page/Home/Home/Home';
 import Login from './Page/Login/Login';
 import Private from './Page/Private/Private';
@@ -14,6 +13,7 @@ import Myorder from './Page/Dashboard/Myorder/Myorder';
 import AddProduct from './Page/Dashboard/AddProduct/AddProduct';
 import Purchase from './Page/Purchase/Purchase';
 import ManageProduct from './Page/Dashboard/ManageProduct/ManageProduct';
+import AddReview from './Page/Dashboard/Review/AddReview';
 function App() {
   return (
     <div>
@@ -34,6 +34,7 @@ function App() {
           <Route index element={<Myorder></Myorder>}></Route>
           <Route path='addproduct' element={<AddProduct></AddProduct>}></Route>
           <Route path='manageProduct' element={<ManageProduct></ManageProduct>}></Route>
+          <Route path='addreview' element={<AddReview></AddReview>}></Route>
         </Route>
       </Routes >
       <Footer></Footer>
