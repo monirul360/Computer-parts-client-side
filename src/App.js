@@ -14,6 +14,7 @@ import AddProduct from './Page/Dashboard/AddProduct/AddProduct';
 import Purchase from './Page/Purchase/Purchase';
 import ManageProduct from './Page/Dashboard/ManageProduct/ManageProduct';
 import AddReview from './Page/Dashboard/Review/AddReview';
+import Error from './Page/Error/Error';
 function App() {
   return (
     <div>
@@ -36,6 +37,7 @@ function App() {
           <Route path='manageProduct' element={<ManageProduct></ManageProduct>}></Route>
           <Route path='addreview' element={<AddReview></AddReview>}></Route>
         </Route>
+        <Route path='*' element={<Error></Error>}></Route>
       </Routes >
       <Footer></Footer>
       <ToastContainer />
