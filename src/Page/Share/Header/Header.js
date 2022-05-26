@@ -7,12 +7,14 @@ const Header = () => {
     const [user] = useAuthState(auth);
     const logout = () => {
         signOut(auth);
+        localStorage.removeItem('AccesToken');
     };
     const menuItems = <>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/blogs'>Blogs</Link></li>
         <li><Link to='/'>My Portfolio</Link></li>
         {user && <li><Link to="/dashboard">Dashboard</Link></li>}
+        {user && <li><Link to="/dashboard"> <smail>{user?.displayName}</smail> </Link></li>}
         {user ?
             <li><button className='' onClick={logout}>Log out</button></li>
             : <li><Link to='/login'>Log in</Link></li>

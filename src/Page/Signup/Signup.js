@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../Firebase-init';
 import Loading from '../Loading/Loading';
+import Usetoken from '../Hooks/Usetoken';
 const Signup = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
     const [signInWithGoogle, gouser, goloading, goerror] = useSignInWithGoogle(auth);
@@ -17,10 +18,11 @@ const Signup = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
+    const [token] = Usetoken(user || gouser);
     if (loading || goloading) {
         return <Loading></Loading>
     }
-    if (user || gouser) {
+    if (token) {
         navigate(from, { replace: true });
     }
     const onSubmit = async (data) => {
