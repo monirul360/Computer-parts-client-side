@@ -15,6 +15,7 @@ import Purchase from './Page/Purchase/Purchase';
 import ManageProduct from './Page/Dashboard/ManageProduct/ManageProduct';
 import AddReview from './Page/Dashboard/Review/AddReview';
 import Error from './Page/Error/Error';
+import MakeAdmin from './Page/Dashboard/MakeAdmin/MakeAdmin';
 function App() {
   return (
     <div>
@@ -36,6 +37,7 @@ function App() {
           <Route path='addproduct' element={<AddProduct></AddProduct>}></Route>
           <Route path='manageProduct' element={<ManageProduct></ManageProduct>}></Route>
           <Route path='addreview' element={<AddReview></AddReview>}></Route>
+          <Route path='makeadmin' element={<MakeAdmin></MakeAdmin>}></Route>
         </Route>
         <Route path='*' element={<Error></Error>}></Route>
       </Routes >
