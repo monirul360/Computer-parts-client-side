@@ -20,6 +20,7 @@ import PrivateAdmin from './Page/Dashboard/PrivateAdmin/PrivateAdmin';
 import Profile from './Page/Dashboard/Profile/Profile';
 import Payment from './Page/Dashboard/Payment/Payment';
 import Portfolio from './Page/Portfolio/Portfolio';
+import Blogs from './Page/Blogs/Blogs';
 function App() {
   return (
     <div>
@@ -27,6 +28,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
+        <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='/portfolio' element={<Portfolio></Portfolio>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<Signup></Signup>}></Route>
