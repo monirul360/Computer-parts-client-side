@@ -16,6 +16,8 @@ import ManageProduct from './Page/Dashboard/ManageProduct/ManageProduct';
 import AddReview from './Page/Dashboard/Review/AddReview';
 import Error from './Page/Error/Error';
 import MakeAdmin from './Page/Dashboard/MakeAdmin/MakeAdmin';
+import PrivateAdmin from './Page/Dashboard/PrivateAdmin/PrivateAdmin';
+import Profile from './Page/Dashboard/Profile/Profile';
 function App() {
   return (
     <div>
@@ -33,11 +35,12 @@ function App() {
             <Dashboard></Dashboard>
           </Private>
         }>
-          <Route index element={<Myorder></Myorder>}></Route>
-          <Route path='addproduct' element={<AddProduct></AddProduct>}></Route>
-          <Route path='manageProduct' element={<ManageProduct></ManageProduct>}></Route>
+          <Route index element={<Profile></Profile>}></Route>
+          <Route path='order' element={<Myorder></Myorder>}></Route>
+          <Route path='addproduct' element={<PrivateAdmin><AddProduct></AddProduct></PrivateAdmin>}></Route>
+          <Route path='manageProduct' element={<PrivateAdmin><ManageProduct></ManageProduct></PrivateAdmin>}></Route>
           <Route path='addreview' element={<AddReview></AddReview>}></Route>
-          <Route path='makeadmin' element={<MakeAdmin></MakeAdmin>}></Route>
+          <Route path='makeadmin' element={<PrivateAdmin><MakeAdmin></MakeAdmin></PrivateAdmin>}></Route>
         </Route>
         <Route path='*' element={<Error></Error>}></Route>
       </Routes >
