@@ -20,6 +20,8 @@ const Dashboard = () => {
                     <ul class="menu p-4 overflow-y-auto bg-neutral  w-50 text-base-content text-blue-50">
                         <li><Link to='/dashboard'>My Profile</Link></li>
                         {admin ? <>
+                            <li><Link to='/dashboard/addproduct'>
+                                Add Product</Link></li>
                             <li><Link to='/dashboard/manageProduct'>Manage Products</Link></li>
                             <li><Link to='/'>Manage All Orders</Link></li>
                             <li><Link to='/dashboard/makeadmin'>Make Admin</Link></li>

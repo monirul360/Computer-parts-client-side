@@ -12,7 +12,7 @@ const Header = () => {
     const menuItems = <>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/blogs'>Blogs</Link></li>
-        <li><Link to='/'>My Portfolio</Link></li>
+        <li><Link to='/portfolio'>My Portfolio</Link></li>
         {user && <li><Link to="/dashboard">Dashboard</Link></li>}
         {user && <li><Link to="/dashboard"> <smail>{user?.displayName}</smail> </Link></li>}
         {user ?

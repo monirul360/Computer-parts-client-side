@@ -18,6 +18,8 @@ import Error from './Page/Error/Error';
 import MakeAdmin from './Page/Dashboard/MakeAdmin/MakeAdmin';
 import PrivateAdmin from './Page/Dashboard/PrivateAdmin/PrivateAdmin';
 import Profile from './Page/Dashboard/Profile/Profile';
+import Payment from './Page/Dashboard/Payment/Payment';
+import Portfolio from './Page/Portfolio/Portfolio';
 function App() {
   return (
     <div>
@@ -25,6 +27,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
+        <Route path='/portfolio' element={<Portfolio></Portfolio>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<Signup></Signup>}></Route>
         <Route path='/Purchase/:id' element={<Private>
@@ -37,6 +40,7 @@ function App() {
         }>
           <Route index element={<Profile></Profile>}></Route>
           <Route path='order' element={<Myorder></Myorder>}></Route>
+          <Route path='payment/:id' element={<Payment></Payment>}></Route>
           <Route path='addproduct' element={<PrivateAdmin><AddProduct></AddProduct></PrivateAdmin>}></Route>
           <Route path='manageProduct' element={<PrivateAdmin><ManageProduct></ManageProduct></PrivateAdmin>}></Route>
           <Route path='addreview' element={<AddReview></AddReview>}></Route>
