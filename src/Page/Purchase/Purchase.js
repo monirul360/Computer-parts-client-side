@@ -86,6 +86,18 @@ const Purchase = () => {
                         </label>
                         <input type="number" placeholder="Number" class="input input-bordered w-full max-w-xs" {...register("number", { required: true })} />
                         <br />
+                        <input
+                            type="text"
+                            name="quantity"
+                            value={quantity + "pcs"}
+                            class="input input-bordered w-full  max-w-xs"
+                        />
+                        <input
+                            type="text"
+                            name="price"
+                            value={"Price:$" + quantity * parts.price}
+                            class="input input-bordered w-full  max-w-xs"
+                        />
                         <input className='input input-bordered bg-primary text-white w-full my-3  max-w-xs' type="submit" value="Order" />
                     </form>
                 </div>

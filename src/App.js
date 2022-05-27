@@ -21,6 +21,7 @@ import Profile from './Page/Dashboard/Profile/Profile';
 import Payment from './Page/Dashboard/Payment/Payment';
 import Portfolio from './Page/Portfolio/Portfolio';
 import Blogs from './Page/Blogs/Blogs';
+import UpdateProfile from './Page/Dashboard/Profile/Updateprofile';
 function App() {
   return (
     <div>
@@ -41,6 +42,7 @@ function App() {
           </Private>
         }>
           <Route index element={<Profile></Profile>}></Route>
+          <Route path='updateprofile' element={<UpdateProfile></UpdateProfile>}></Route>
           <Route path='order' element={<Myorder></Myorder>}></Route>
           <Route path='payment/:id' element={<Payment></Payment>}></Route>
           <Route path='addproduct' element={<PrivateAdmin><AddProduct></AddProduct></PrivateAdmin>}></Route>
