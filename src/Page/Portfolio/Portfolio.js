@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import image from './../../Image/Portflow/portflow.png';
+import proimgone from './../../Image/Portflow/1.jpg';
+import proimgtwo from './../../Image/Portflow/2.jpg';
+import proimgthree from './../../Image/Portflow/3.jpg';
 const Portfolio = () => {
     return (
         <section className='my-12 p-8'>
@@ -41,16 +44,16 @@ const Portfolio = () => {
                 <p className='text-2xl my-3'>Checkout Some of my recent projects here</p>
                 <div className='grid grid-cols-1 lg-grid-cols-2 md:grid-cols-3 my-12 gap-8'>
                     <div class="card card-compact bg-base-100 shadow-xl">
-                        <figure><img src="https://api.lorem.space/image/shoes?w=400&h=225" alt="Shoes" /></figure>
+                        <figure><img src={proimgthree} alt="Carspot" /></figure>
                         <div class="card-body">
-                            <h2 class="card-title mb-5">Foundation website</h2>
+                            <h2 class="card-title mb-5">Carspot website</h2>
                             <div class="card-actions justify-start">
-                                <a target="_blank" className='btn btn-primary' href="https://sebayonfoundation.org/">Visiting</a>
+                                <a target="_blank" className='btn btn-primary' href="https://carspot-cf9bf.web.app/">Visiting</a>
                             </div>
                         </div>
                     </div>
                     <div class="card card-compact bg-base-100 shadow-xl">
-                        <figure><img src="https://api.lorem.space/image/shoes?w=400&h=225" alt="Shoes" /></figure>
+                        <figure><img src={proimgtwo} alt="fibki" /></figure>
                         <div class="card-body">
                             <h2 class="card-title">Ecommerce website</h2>
                             <div class="card-actions justify-start">
@@ -59,7 +62,7 @@ const Portfolio = () => {
                         </div>
                     </div>
                     <div class="card card-compact bg-base-100 shadow-xl">
-                        <figure><img src="https://api.lorem.space/image/shoes?w=400&h=225" alt="Shoes" /></figure>
+                        <figure><img src={proimgone} alt="trave;" /></figure>
                         <div class="card-body">
                             <h2 class="card-title">Travel guide website</h2>
                             <div class="card-actions justify-start">
