@@ -7,7 +7,7 @@ const CheckoutForm = ({ payment }) => {
     const [success, setSuccess] = useState('');
     const [transactionId, setTransactionId] = useState('');
     const [clineSecret, setClineSecret] = useState('')
-    const { _id, totlaPrice, username, email } = payment;
+    const { _id, price, Usname, email } = payment;
     useEffect(() => {
         fetch('http://localhost:5000/create-payment-intent', {
             method: 'POST',
@@ -15,7 +15,7 @@ const CheckoutForm = ({ payment }) => {
                 'content-type': 'application/json',
                 'authorization': `${localStorage.getItem('AccesToken')}`
             },
-            body: JSON.stringify({ totlaPrice })
+            body: JSON.stringify({ price })
         })
             .then(res => res.json())
             .then(data => {
@@ -23,7 +23,7 @@ const CheckoutForm = ({ payment }) => {
                     setClineSecret(data.clientSecret);
                 }
             });
-    }, [totlaPrice])
+    }, [price])
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!stripe || !elements) {
@@ -50,7 +50,7 @@ const CheckoutForm = ({ payment }) => {
                 payment_method: {
                     card: card,
                     billing_details: {
-                        name: username,
+                        name: Usname,
                         email: email
                     },
                 },
@@ -100,7 +100,7 @@ const CheckoutForm = ({ payment }) => {
                         },
                     }}
                 />
-                <button className='btn btn-sm mt-5 btn-success' type="submit" disabled={!useStripe || !clineSecret}>
+                <button className='btn btn-sm mt-5 btn-success' type="submit" disabled={!useStripe || !clineSecret || success}>
                     Pay
                 </button>
             </form>

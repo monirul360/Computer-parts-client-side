@@ -5,8 +5,10 @@ const Portfolio = () => {
     return (
         <section className='my-12 p-8'>
             <div className='flex items-center justify-center flex-col text-center my-12'>
-                <div className='w-40 mb-5  rounded-full'>
-                    <img src={image} alt="" />
+                <div className='avatar'>
+                    <div className='w-44 mb-5  rounded-full'>
+                        <img src={image} alt="" />
+                    </div>
                 </div>
                 <div>
                     <p className='text-2xl py-2'>Md Monirul Islam</p>

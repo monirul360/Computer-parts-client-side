@@ -15,7 +15,7 @@ const Partsrow = ({ parts }) => {
                     <p>Available : {available}</p>
                     <p className='text-red-600 font-bold'>Price : ${price}</p>
                     <div class="card-actions justify-end">
-                        <Link to={`/purchase/${_id}`} class="btn btn-primary btn-sm">Buy Now</Link>
+                        <Link to={`/Purchase/${_id}`} class="btn btn-primary btn-sm">Buy Now</Link>
                     </div>
                 </div>
             </div>

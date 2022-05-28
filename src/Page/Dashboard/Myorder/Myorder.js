@@ -2,12 +2,12 @@ import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
+import auth from '../../../Firebase-init';
 import MyorderRow from '../MyorderRow/MyorderRow';
-import auth from './../../../Firebase-init';
 const Myorder = () => {
     const [user] = useAuthState(auth);
     const navigate = useNavigate();
-    const [order, setOrder] = useState([]);
+    const [booking, setBooking] = useState([]);
     useEffect(() => {
         fetch(`http://localhost:5000/booking?email=${user.email}`, {
             method: 'GET',
@@ -16,35 +16,35 @@ const Myorder = () => {
             }
         })
             .then(res => {
+                console.log('insite response', res)
                 if (res.status === 401 || res.status === 403) {
                     signOut(auth);
-                    localStorage.removeItem('AccessToken');
+                    localStorage.removeItem('AccesToken');
                     navigate('/');
                 }
                 return res.json()
             }
             )
             .then(data => {
-                setOrder(data)
+                setBooking(data)
             });
     }, [user])
     return (
         <div>
-            <p className='text-2xl my-2 p-4'>My orders</p>
-            <div class="overflow-x-auto p-5">
+            <div class="overflow-x-auto p-3">
                 <table class="table table-zebra w-full">
                     <thead>
                         <tr>
                             <th></th>
-                            <th>Name</th>
-                            <th>Username</th>
+                            <th>productName</th>
+                            <th>customerName</th>
                             <th>Payment</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            order.map((order, index) => <MyorderRow
+                            booking.map((order, index) => <MyorderRow
                                 key={order._id}
                                 order={order}
                                 index={index}

@@ -1,10 +1,11 @@
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import auth from "../../firebase.init";
+import { useNavigate } from "react-router-dom";
+import auth from "../../Firebase-init";
 
 const PurchaseModal = ({ details, orderQuantity }) => {
     const [user] = useAuthState(auth);
-
+    const navigate = useNavigate();
     const handleModal = (e) => {
         e.preventDefault();
         const orderDetails = {
@@ -17,7 +18,7 @@ const PurchaseModal = ({ details, orderQuantity }) => {
             phone: e.target.number.value,
         };
         console.log(orderDetails);
-        const url = "https://limitless-cove-72486.herokuapp.com/orders";
+        const url = "http://localhost:5000/booking";
         fetch(url, {
             method: "POST",
             headers: {
@@ -28,6 +29,7 @@ const PurchaseModal = ({ details, orderQuantity }) => {
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
+                navigate('/dashboard/order');
             });
     };
 

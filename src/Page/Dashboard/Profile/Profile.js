@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../Firebase-init';
-
+import img from './../../../Image/User/user.png';
 const Profile = () => {
 
     const [user] = useAuthState(auth)
@@ -24,7 +24,7 @@ const Profile = () => {
             <div className='flex items-center p-8'>
                 <div class="avatar">
                     <div class="w-24 rounded-full ">
-                        <img src={user?.photoURL} alt="" />
+                        <img src={user?.photoURL || img} alt="" />
                     </div>
                 </div>
                 <div className='ml-4'>
