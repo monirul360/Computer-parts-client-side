@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const MyorderRow = ({ order, index }) => {
+const MyorderRow = ({ order, index, setCancelmodal }) => {
     return (
         <>
             <tr>
@@ -14,7 +14,7 @@ const MyorderRow = ({ order, index }) => {
                     {
                         order.paid ? <p>{order.transactionId}</p>
                             :
-                            <button className='btn  btn-xs'>Cancel</button>
+                            <label onClick={() => setCancelmodal(order)} for="OrderCancel" class="btn btn-sm">Cancel</label>
                     }
 
                 </td>

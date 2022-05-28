@@ -4,8 +4,10 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import auth from '../../../Firebase-init';
 import MyorderRow from '../MyorderRow/MyorderRow';
+import OrderCancelModal from './../Myordercancel/OrderCancelModal';
 const Myorder = () => {
     const [user] = useAuthState(auth);
+    const [cancelmodal, setCancelmodal] = useState(null);
     const navigate = useNavigate();
     const [booking, setBooking] = useState([]);
     useEffect(() => {
@@ -48,11 +50,18 @@ const Myorder = () => {
                                 key={order._id}
                                 order={order}
                                 index={index}
+                                setCancelmodal={setCancelmodal}
                             ></MyorderRow>)
                         }
                     </tbody>
                 </table>
             </div>
+            {
+                cancelmodal && <OrderCancelModal
+                    cancelmodal={cancelmodal}
+                    setCancelmodal={setCancelmodal}
+                ></OrderCancelModal>
+            }
         </div>
     );
 };
