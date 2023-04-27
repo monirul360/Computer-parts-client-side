@@ -15,7 +15,7 @@ const AddReview = () => {
             ratings: data.ratings,
         }
         // send to your database 
-        fetch('http://localhost:5000/review', {
+        fetch('https://computer-parts.onrender.com/review', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

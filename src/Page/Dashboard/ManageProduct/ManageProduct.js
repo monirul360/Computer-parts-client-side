@@ -4,7 +4,7 @@ import Loading from '../../Loading/Loading';
 import Managerow from '../Managerow/Managerow';
 
 const ManageProduct = () => {
-    const { data: parts, isLoading, refetch } = useQuery("parts", () => fetch('http://localhost:5000/perts').then(res => res.json()))
+    const { data: parts, isLoading, refetch } = useQuery("parts", () => fetch('https://computer-parts.onrender.com/perts').then(res => res.json()))
     if (isLoading) {
         return <Loading></Loading>
     }

@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 const OrderCancel = ({ cancelmodal, setCancelmodal }) => {
     const { _id, } = cancelmodal;
     const handleDelete = () => {
-        fetch(`http://localhost:5000/booking/${_id}`, {
+        fetch(`https://computer-parts.onrender.com/booking/${_id}`, {
             method: 'DELETE',
         })
             .then(res => res.json())

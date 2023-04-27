@@ -11,7 +11,7 @@ const Myorder = () => {
     const navigate = useNavigate();
     const [booking, setBooking] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/booking?email=${user.email}`, {
+        fetch(`https://computer-parts.onrender.com/booking?email=${user.email}`, {
             method: 'GET',
             headers: {
                 'authraze': `${localStorage.getItem("AccesToken")}`

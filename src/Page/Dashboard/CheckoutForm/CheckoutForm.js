@@ -9,7 +9,7 @@ const CheckoutForm = ({ payment }) => {
     const [clineSecret, setClineSecret] = useState('')
     const { _id, price, Usname, email } = payment;
     useEffect(() => {
-        fetch('http://localhost:5000/create-payment-intent', {
+        fetch('https://computer-parts.onrender.com/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -67,7 +67,7 @@ const CheckoutForm = ({ payment }) => {
                 appointment: _id,
                 transactionId: paymentIntent.id
             }
-            fetch(`http://localhost:5000/booking/${_id}`, {
+            fetch(`https://computer-parts.onrender.com/booking/${_id}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json',
