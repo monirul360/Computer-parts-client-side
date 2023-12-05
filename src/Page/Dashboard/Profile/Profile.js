@@ -8,7 +8,7 @@ const Profile = () => {
     const [user] = useAuthState(auth)
     const [profile, setProfile] = useState([]);
     useEffect(() => {
-        fetch(`https://computer-parts.onrender.com/users/${user?.email}`, {
+        fetch(`http://localhost:5000/users/${user?.email}`, {
             method: 'GET',
             headers: {
                 'content-type': 'application/json',

@@ -26,7 +26,7 @@ const AddProduct = () => {
                         image: img,
                     }
                     // send to your database 
-                    fetch('https://computer-parts.onrender.com/perts', {
+                    fetch('http://localhost:5000/perts', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',

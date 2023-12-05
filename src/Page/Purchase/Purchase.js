@@ -9,7 +9,7 @@ const Pur = () => {
 
     const orderQuantity = parseInt(total);
     useEffect(() => {
-        const url = `https://computer-parts.onrender.com/perts/${purchaseId}`;
+        const url = `http://localhost:5000/perts/${purchaseId}`;
 
         fetch(url)
             .then((res) => res.json())

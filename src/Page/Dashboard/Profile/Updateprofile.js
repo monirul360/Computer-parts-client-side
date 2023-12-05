@@ -16,7 +16,7 @@ const UpdateProfile = () => {
         };
         console.log(updatedInformation);
 
-        fetch(`https://computer-parts.onrender.com/users/${user?.email}`, {
+        fetch(`http://localhost:5000/users/${user?.email}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
