@@ -11,7 +11,11 @@ const ShowReview = () => {
     const slicereview = review.slice(0, 6);
     return (
         <div className='mx-12'>
-            <p className='text-3xl my-8 text-center text-primary font-bold'>Testimonials</p>
+            <div className='p-2'>
+                <p className='text-1xl px-5 uppercase py-2  w-60 font-bold'
+
+                >Testimonials</p>
+            </div>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
                 {
                     slicereview.slice(0).reverse().map(r => <ReviewRow

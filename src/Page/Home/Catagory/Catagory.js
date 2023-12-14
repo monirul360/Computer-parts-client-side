@@ -8,7 +8,6 @@ import imgsix from './../../../Image/Catagory/6.png';
 const Catagory = () => {
     return (
         <div className=' p-8  my-12'>
-            <p className='mb-12 text-center text-3xl  text-primary'>The products of that category come to us</p>
             <div className="grid grid-cols-2 md:grid-cols-3 lg-grid-cols-3 gap-12">
                 <div className='flex justify-center items-center'>
                     <div>

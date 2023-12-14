@@ -4,7 +4,7 @@ const Discount = () => {
     return (
         <sectin>
             <div className="py-8 bg-base-200">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg-grid-cols-2 gap-5 p-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg-grid-cols-2 gap-5 p-8 justify-items-center	items-center">
                     <div className="rounded">
                         <img src={image} alt='' />
                     </div>

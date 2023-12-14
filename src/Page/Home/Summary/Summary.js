@@ -3,7 +3,6 @@ import React from 'react';
 const Summary = () => {
     return (
         <div>
-            <p className='text-3xl text-center pt-10 text-primary'>The business summary </p>
             <div className='grid gird-cols-1 md:grid-cols-2 lg:grid-cols-4 text-center my-8 gap-3  p-8'>
                 <div>
                     <div className="flex justify-center text-primary"><svg xmlns="http://www.w3.org/2000/svg" className="h-14 w-14 " viewBox="0 0 20 20" fill="currentColor">
