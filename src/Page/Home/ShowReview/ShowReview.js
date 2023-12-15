@@ -8,7 +8,7 @@ const ShowReview = () => {
     if (isLoading) {
         return
     }
-    const slicereview = review.slice(0, 6);
+    const slicereview = review.slice(0, 9);
     return (
         <div className='mx-12'>
             <div className='p-2'>

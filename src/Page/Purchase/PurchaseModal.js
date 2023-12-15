@@ -64,7 +64,7 @@ const PurchaseModal = ({ details, orderQuantity }) => {
                         <input
                             type="text"
                             name="quantity"
-                            value={orderQuantity + "pcs"}
+                            value={orderQuantity + "Pcs"}
                             class="input input-bordered w-full  max-w-xs"
                         />
                         <input
@@ -88,7 +88,7 @@ const PurchaseModal = ({ details, orderQuantity }) => {
                         <input
                             type="submit"
                             value="Place Order"
-                            class="input input-bordered  hover:bg-slate-400 hover:text-white font-bold w-full max-w-xs"
+                            class="input input-bordered text-xl hover:bg-gray-900 hover:text-white font-bold w-full max-w-xs"
                         />
                     </form>
                 </div>

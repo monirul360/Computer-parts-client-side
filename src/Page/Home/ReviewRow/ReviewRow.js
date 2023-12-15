@@ -1,21 +1,18 @@
-import React from 'react';
 
 const ReviewRow = ({ review }) => {
+
+    const reviewritng = review?.ratings;
+
+    const sortdes = review?.description.slice(0, 100);
+
     return (
         <div class="m-3">
-            {/* <div class="card-body">
-                <h2 class="card-title">Name: {review?.name}</h2>
-                <p>{review?.description}</p>
-                <div class="card-actions justify-end">
-                    <p className='font-bold'>Ratings: {review?.ratings}</p>
-                </div>
-            </div> */}
 
             <div class="mb-6 lg:mb-0">
                 <div
                     class="block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
                     <div class="relative overflow-hidden bg-cover bg-no-repeat">
-                        <img src="https://mdbcdn.b-cdn.net/img/new/avatars/6.jpg" class="w-full rounded-t-lg" />
+                        <img style={{ "width": "100%", "height": "260px" }} src={review?.image} class="w-full rounded-t-lg" />
                         <a href="#!">
                             <div class="absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-fixed"></div>
                         </a>
@@ -29,9 +26,10 @@ const ReviewRow = ({ review }) => {
                     <div class="p-6">
                         <h5 class="mb-2 text-lg font-bold">{review?.name}</h5>
                         <h6 class="mb-4 font-medium text-primary dark:text-primary-400">
-                            Marketing Specialist
+                            {review?.Specialist}
                         </h6>
                         <ul class="mb-6 flex justify-center">
+
                             <li>
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 96 960 960" class="w-5 text-warning">
                                     <path fill="currentColor"
@@ -59,12 +57,14 @@ const ReviewRow = ({ review }) => {
                             <li>
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 96 960 960" class="w-5 text-warning">
                                     <path fill="currentColor"
-                                        d="m480 757 157 95-42-178 138-120-182-16-71-168v387ZM233 976l65-281L80 506l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Z" />
+                                        d="m233 976 65-281L80 506l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Z" />
                                 </svg>
                             </li>
+
+
                         </ul>
                         <p>
-                            {review?.description}
+                            {sortdes}
                         </p>
                     </div>
                 </div>

@@ -2,9 +2,11 @@ import React, { useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { toast } from "react-toastify";
 import auth from "../../../Firebase-init";
+import { useNavigate } from "react-router-dom";
 
 const UpdateProfile = () => {
     const [user] = useAuthState(auth);
+    const navigate = useNavigate();
     const updateProfile = (e) => {
         e.preventDefault();
 
@@ -13,6 +15,7 @@ const UpdateProfile = () => {
             phone: e.target.phone.value,
             address: e.target.address.value,
             social: e.target.social.value,
+            boi: e.target.boi.value,
         };
         console.log(updatedInformation);
 
@@ -29,15 +32,18 @@ const UpdateProfile = () => {
                 const check = data.modifiedCount;
                 if (check) {
                     toast("Update profile successful");
+                    navigate(('/dashboard'))
+
                 } else {
                     toast("Update profile fail");
                 }
             })
     }
     return (
-        <div className="p-8">
-            <h1 className="text-2xl mb-3">UPDATE YOUR PROFILE</h1>
+        <div className="p-5 m-12 mt-0 bg-white  w-fit	">
+            <h1 className="text-2xl border-b-2 pb-2 mb-3">UPDATE YOUR PROFILE</h1>
             <form onSubmit={updateProfile} className="grid grid-cols-1 gap-2">
+                <textarea placeholder="Boi" name="boi" className="textarea textarea-bordered textarea-md w-full" ></textarea>
                 <input
                     type="text"
                     name="education"
@@ -59,13 +65,13 @@ const UpdateProfile = () => {
                 <input
                     type="text"
                     name="social"
-                    placeholder="Social L"
+                    placeholder="Social Link"
                     className="input input-bordered w-full max-w-xs"
                 />
                 <input
                     type="submit"
                     value="UPDATE PROFILE"
-                    className="input input-bordered btn btn-secondary w-full max-w-xs"
+                    className="input input-bordered btn bg-gray-700 w-full max-w-xs"
                 />
             </form>
         </div>

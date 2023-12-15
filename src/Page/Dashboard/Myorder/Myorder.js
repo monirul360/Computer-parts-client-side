@@ -32,7 +32,7 @@ const Myorder = () => {
             });
     }, [user])
     return (
-        <div>
+        <div className='bg-white p-5 mx-10'>
             <div class="overflow-x-auto p-3">
                 <table class="table table-zebra w-full">
                     <thead>

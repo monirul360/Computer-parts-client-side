@@ -8,11 +8,11 @@ const Dashboard = () => {
     const [user] = useAuthState(auth);
     const [admin] = UseAdmin(user)
     return (
-        <div>
+        <div className='border-t-2' style={{ "background": "#EEEEEE" }}>
             <div class="drawer drawer-mobile">
                 <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
-                <div class="drawer-content">
-                    <p className='text-primary p-4 my-4 text-2xl'>Welcome my Dashboard</p>
+                <div class="drawer-content my-4">
+                    {/* <p className='text-primary p-4 ms-7 my-4 text-2xl'>Welcome my Dashboard</p> */}
                     <Outlet></Outlet>
                 </div>
                 <div class="drawer-side">
