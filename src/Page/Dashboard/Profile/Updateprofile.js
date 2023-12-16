@@ -40,40 +40,42 @@ const UpdateProfile = () => {
             })
     }
     return (
-        <div className="p-5 m-12 mt-0 bg-white  w-fit	">
-            <h1 className="text-2xl border-b-2 pb-2 mb-3">UPDATE YOUR PROFILE</h1>
-            <form onSubmit={updateProfile} className="grid grid-cols-1 gap-2">
-                <textarea placeholder="Boi" name="boi" className="textarea textarea-bordered textarea-md w-full" ></textarea>
-                <input
-                    type="text"
-                    name="education"
-                    placeholder="Education"
-                    className="input input-bordered w-full max-w-xs"
-                />
-                <input
-                    type="text"
-                    name="address"
-                    placeholder="Address"
-                    className="input input-bordered w-full max-w-xs"
-                />
-                <input
-                    type="number"
-                    name="phone"
-                    placeholder="Number"
-                    className="input input-bordered w-full max-w-xs"
-                />
-                <input
-                    type="text"
-                    name="social"
-                    placeholder="Social Link"
-                    className="input input-bordered w-full max-w-xs"
-                />
-                <input
-                    type="submit"
-                    value="UPDATE PROFILE"
-                    className="input input-bordered btn bg-gray-700 w-full max-w-xs"
-                />
-            </form>
+        <div className="grid grid-cols-1 mt-5  place-items-center">
+            <div className="w-fit rounded-lg ">
+                <h1 className="text-center p-5 text-white bg-green-700">UPDATE YOUR PROFILE</h1>
+                <form onSubmit={updateProfile} className="grid grid-cols-1 bg-white p-10 gap-3">
+                    <textarea placeholder="Boi" name="boi" className="textarea textarea-bordered textarea-md w-full" ></textarea>
+                    <input
+                        type="text"
+                        name="education"
+                        placeholder="Education"
+                        className="input input-bordered w-full max-w-xs"
+                    />
+                    <input
+                        type="text"
+                        name="address"
+                        placeholder="Address"
+                        className="input input-bordered w-full max-w-xs"
+                    />
+                    <input
+                        type="number"
+                        name="phone"
+                        placeholder="Number"
+                        className="input input-bordered w-full max-w-xs"
+                    />
+                    <input
+                        type="text"
+                        name="social"
+                        placeholder="Social Link"
+                        className="input input-bordered w-full max-w-xs"
+                    />
+                    <input
+                        type="submit"
+                        value="UPDATE PROFILE"
+                        className="input input-bordered btn bg-gray-700 w-full max-w-xs"
+                    />
+                </form>
+            </div>
         </div>
     );
 }

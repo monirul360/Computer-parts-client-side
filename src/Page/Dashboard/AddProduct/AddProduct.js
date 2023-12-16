@@ -48,15 +48,15 @@ const AddProduct = () => {
             })
     }
     return (
-        <div>
-            <div className="card w-96 p-2 ml-8  bg-base-100 shadow-xl">
-                <div className="card-body">
-                    <h2 className="card-title text-center mb-2">Add Product</h2>
+        <div className='grid grid-cols-1  place-items-center'>
+            <div className="card w-2/4">
+                <div className="card-body bg-white">
+                    <h2 className="card-title text-center w-full bg-green-700 p-5 text-white mb-2">Add Product</h2>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <label className="label">
                             <span className="label-text">Name</span>
                         </label>
-                        <input type="name" placeholder="Name" class="input input-bordered w-full max-w-xs" {...register("name", { required: true })} />
+                        <input type="name" placeholder="Name" class="input input-bordered w-full " {...register("name", { required: true })} />
                         <label class="label">
                             <span class="label-text-alt text-red-700">
                                 {errors.name && "Name is required"}
@@ -65,7 +65,8 @@ const AddProduct = () => {
                         <label className="label">
                             <span className="label-text">Description</span>
                         </label>
-                        <input type="text" placeholder="description" class="input input-bordered w-full max-w-xs" {...register("description", { required: true })} />
+
+                        <textarea className='textarea textarea-bordered textarea-md w-full' placeholder="Description" {...register("description", { required: true })} ></textarea>
                         <label class="label">
                             <span class="label-text-alt text-red-700">
                                 {errors.description && "Description is required"}
@@ -74,7 +75,7 @@ const AddProduct = () => {
                         <label className="label">
                             <span className="label-text">Quantity</span>
                         </label>
-                        <input type="number" placeholder="Quantity" className="input input-bordered w-full max-w-xs" {...register("quantity", { required: true })} />
+                        <input type="number" placeholder="Quantity" className="input input-bordered w-full " {...register("quantity", { required: true })} />
                         <label class="label">
                             <span class="label-text-alt text-red-700">
                                 {errors.quantity && "Quantity is required"}
@@ -83,7 +84,7 @@ const AddProduct = () => {
                         <label className="label">
                             <span className="label-text">Available</span>
                         </label>
-                        <input type="number" placeholder="available" className="input input-bordered w-full max-w-xs" {...register("available", { required: true })} />
+                        <input type="number" placeholder="available" className="input input-bordered w-full " {...register("available", { required: true })} />
                         <label class="label">
                             <span class="label-text-alt text-red-700">
                                 {errors.available && "Available is required"}
@@ -92,7 +93,7 @@ const AddProduct = () => {
                         <label className="label">
                             <span className="label-text">Price</span>
                         </label>
-                        <input type="number" placeholder="price" className="input input-bordered w-full max-w-xs" {...register("price", { required: true })} />
+                        <input type="number" placeholder="price" className="input input-bordered w-full " {...register("price", { required: true })} />
                         <label class="label">
                             <span class="label-text-alt text-red-700">
                                 {errors.price && "Price is required"}
@@ -101,13 +102,13 @@ const AddProduct = () => {
                         <label className="label">
                             <span className="label-text">Image</span>
                         </label>
-                        <input type="file" className="input input-bordered w-full max-w-xs" {...register("image", { required: true })} />
+                        <input type="file" className="input input-bordered w-full " {...register("image", { required: true })} />
                         <label class="label">
                             <span class="label-text-alt text-red-700">
                                 {errors.image && "Image is required"}
                             </span>
                         </label>
-                        <input type="submit" value="ADD" class="input input-bordered btn  btn-active mt-3 mb-4 w-full max-w-xs" />
+                        <input type="submit" value="ADD" class="input input-bordered btn  btn-active mt-3 mb-4 w-full " />
                     </form>
                 </div>
             </div>

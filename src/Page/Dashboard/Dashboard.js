@@ -15,9 +15,9 @@ const Dashboard = () => {
                     {/* <p className='text-primary p-4 ms-7 my-4 text-2xl'>Welcome my Dashboard</p> */}
                     <Outlet></Outlet>
                 </div>
-                <div class="drawer-side">
+                <div class=" drawer-side hidden">
                     <label for="my-drawer-2" class="drawer-overlay"></label>
-                    <ul class="menu p-4 overflow-y-auto bg-neutral  w-50 text-base-content text-blue-50">
+                    <ul class="menu hidden p-4 overflow-y-auto bg-neutral  w-50 text-base-content text-blue-50">
                         <li><Link to='/dashboard'>My Profile</Link></li>
                         {admin ? <>
                             <li><Link to='/dashboard/addproduct'>
@@ -29,7 +29,7 @@ const Dashboard = () => {
                         </>
                             : <>
                                 <li><Link to='/dashboard/order'>My Orders</Link></li>
-                                <li><Link to='/dashboard/addreview'>Add A Review</Link></li>
+                                <li><Link to='/dashboard/addreview'>Add  Review</Link></li>
                             </>
                         }
 

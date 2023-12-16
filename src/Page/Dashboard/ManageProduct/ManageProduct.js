@@ -9,10 +9,10 @@ const ManageProduct = () => {
         return <Loading></Loading>
     }
     return (
-        <div>
-            <p className='p-4 text-2xl'>Manage all Product</p>
+        <div className='bg-white m-10'>
+            <p className='p-4 text-2xl bg-green-700 text-white'>Manage All Product</p>
             <div class="overflow-x-auto p-5">
-                <table class="table w-full">
+                <table class="table table-auto w-full">
                     <thead>
                         <tr>
                             <th></th>

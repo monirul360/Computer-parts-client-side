@@ -32,8 +32,9 @@ const Myorder = () => {
             });
     }, [user])
     return (
-        <div className='bg-white p-5 mx-10'>
-            <div class="overflow-x-auto p-3">
+        <div className='bg-white  mx-10'>
+            <p className='p-5 text-xl bg-green-700 text-white'>MY CARD</p>
+            <div class="overflow-x-auto p-4">
                 <table class="table table-zebra w-full">
                     <thead>
                         <tr>
@@ -41,6 +42,7 @@ const Myorder = () => {
                             <th>productName</th>
                             <th>customerName</th>
                             <th>Payment</th>
+                            <th>Price</th>
                             <th>Action</th>
                         </tr>
                     </thead>

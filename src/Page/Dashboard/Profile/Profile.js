@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../Firebase-init';
 import img from './../../../Image/User/user.png';
@@ -10,6 +10,9 @@ import numbericon from './../../../Image/Icon/icons8-call-35.png';
 import socialicon from './../../../Image/Icon/icons8-internet-35.png';
 import { toast } from 'react-toastify';
 import { useForm } from 'react-hook-form';
+import { signOut } from 'firebase/auth';
+import Loading from '../../Loading/Loading';
+import { useQuery } from 'react-query';
 const Profile = () => {
 
     const [user] = useAuthState(auth)
@@ -26,6 +29,10 @@ const Profile = () => {
             .then(data => setProfile(data));
     }, [user])
     const { education, phone, address, social } = profile;
+
+    function refreshPage() {
+        window.location.reload(false);
+    }
 
 
     // review data send database
@@ -66,6 +73,8 @@ const Profile = () => {
                             if (inserted.insertedId) {
                                 toast.success('Add Review successfull');
                                 reset();
+                                refreshPage()
+                                refetch();
                             }
                             else {
                                 toast.error('Failed to Add Review');
@@ -74,9 +83,28 @@ const Profile = () => {
                 }
             })
     }
+    // show my review
+
+
+    const { data: showreview, isLoading, refetch } = useQuery("parts", () => fetch(`http://localhost:5000/moni?email=${user.email}`).then(res => res.json()))
+    if (isLoading) {
+        return <Loading></Loading>
+    }
+    // review delete
+    const handleDelete = (id) => {
+        fetch(`http://localhost:5000/review/${id}`, {
+            method: 'DELETE',
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.deletedCount) {
+                    refetch();
+                }
+            })
+    }
     return (
         <>
-            <div className='m-10' >
+            <div className='m-10 mt-1' >
                 <div className='flex items-center p-8 border-b-2' style={{ "background": "#ffff" }}>
                     <div class="avatar">
                         <div class="w-28 rounded-full ">
@@ -93,8 +121,8 @@ const Profile = () => {
                 </div>
                 <div style={{ "background": "#F0F2F5" }}>
 
-                    <div className="grid grid-cols-2 cols-1">
-                        <div className=' bg-white p-5 m-5'>
+                    <div className="grid grid-cols- md:grid-cols-2">
+                        <div className=' bg-white p-5 mt-5'>
                             <div className='flex items-center gap-2'>
                                 <div>
                                     <img src={emailicon} alt="" />
@@ -162,7 +190,7 @@ const Profile = () => {
                                     <div className="flex items-center border-b-2">
                                         <div class="avatar">
                                             <div class="w-12 rounded-full ">
-                                                <img src={user?.photoURL || img} alt="" />
+                                                <img className='rounded-full' src={user?.photoURL || img} alt="" />
                                             </div>
                                         </div>
                                         <div className='m-3'>
@@ -192,6 +220,45 @@ const Profile = () => {
                                     </div>
                                 </button>
                             </label>
+                            {/* show review start */}
+                            {
+                                showreview?.map(show =>
+
+                                    <div className='bg-white mt-4 pb-5 pt-3 rounded-lg' key={show._id} refetch={refetch}>
+                                        <div className="flex items-center ms-5">
+                                            <div>
+                                                <img className='w-16 rounded-full' src={user?.photoURL || img} alt="" />
+                                            </div>
+                                            <div className='ms-4'>
+                                                <p className='text-xl'>{user?.displayName}</p>
+                                                <span className='text-green-600'>Review</span>
+                                            </div>
+                                        </div>
+                                        <div className=' text-gray-700 my-2 mb-0 py-2 border-b-2'>
+                                            <p className='mx-7'>{show?.description}</p>
+                                        </div>
+                                        <div>
+                                            <img style={{ "width": "100%", "height": "270px" }} src={show?.image} alt="" />
+                                        </div>
+                                        <div className='flex justify-around  border-t-2 border-b-2 mt-4 py-3'>
+
+                                            <div>
+                                                <button className='btn btn-primary btn-sm'>Comment</button>
+                                            </div>
+                                            <div>
+                                                <button className='btn btn-gray-700 btn-sm'>Share</button>
+                                            </div>
+                                            <div>
+                                                <button onClick={() => handleDelete(show._id)} className='btn bg-rose-700 border-none btn-sm'>Delete</button>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                )
+                            }
+
+                            {/* show review end */}
                         </div>
                     </div>
                 </div>

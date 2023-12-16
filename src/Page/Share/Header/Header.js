@@ -3,8 +3,11 @@ import { Link } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from './../../../Firebase-init';
 import { signOut } from 'firebase/auth';
+import UseAdmin from '../../Hooks/UseAdmin';
 const Header = () => {
     const [user] = useAuthState(auth);
+    const [admin] = UseAdmin(user)
+
     const logout = () => {
         signOut(auth);
         localStorage.removeItem('AccesToken');
@@ -72,6 +75,24 @@ const Header = () => {
                                         <span className="badge">New</span>
                                     </Link>
                                 </li>
+
+                                {/* ================ */}
+
+
+                                {admin ? <>
+                                    <li><Link to='/dashboard/addproduct'>
+                                        Add Product</Link></li>
+                                    <li><Link to='/dashboard/manageProduct'>Manage Products</Link></li>
+                                    <li><Link to='/'>Manage All Orders</Link></li>
+                                    <li><Link to='/dashboard/makeadmin'>Make Admin</Link></li>
+
+                                </>
+                                    : <>
+                                    </>
+                                }
+
+                                {/* ================= */}
+
                                 {user && <li><Link to="/dashboard/order">Dashboard</Link></li>}
                                 <li><button className='' onClick={logout}>Log out</button></li>
                             </ul>

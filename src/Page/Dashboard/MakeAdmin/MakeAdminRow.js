@@ -26,7 +26,7 @@ const MakeAdminRow = ({ user, refetch }) => {
     }
     return (
         <tbody>
-            <tr>
+            <tr className='border-b-2'>
                 <td>1</td>
                 <td>{email}</td>
                 <td>{role !== 'admin' && <button onClick={makeAdmin} class="btn btn-xs">Make Admin</button>}</td>

@@ -16,19 +16,24 @@ const Payment = () => {
         return <Loading></Loading>
     }
     return (
-        <div>
-            <div className="card mx-12 my-10 w-95 bg-base-100 shadow-xl">
-                <div className="card-body">
-                    <h2 className="card-title text-1xl text-pink-500">Hi {payment.customerName}</h2>
-                    <p className='text-2xl my-2'>Please Pay for {payment?.productName}</p>
-                    <p className='text-2xl text-red-500'>Pay Now ${payment.price} ammount</p>
-                </div>
-            </div>
-            <div class="card w-96  mx-12 my-10 bg-base-100 shadow-xl">
-                <div class="card-body">
-                    <Elements stripe={stripePromise}>
-                        <CheckoutForm payment={payment} />
-                    </Elements>
+        <div className='grid grid-cols-1 place-items-center'>
+            <div className='bg-gray-900' >
+                <p className='bg-green-700 text-xl text-white p-5'>Payment</p>
+                <div className='p-10'>
+                    <div className="card mb-5  bg-base-100">
+                        <div className="card-body">
+                            <h2 className="card-title text-1xl text-pink-500">Hi {payment.customerName}</h2>
+                            <p className='text-2xl my-2'>Please Pay for {payment?.productName}</p>
+                            <p className='text-2xl text-red-500'>Pay Now ${payment.price} ammount</p>
+                        </div>
+                    </div>
+                    <div class="card bg-base-100">
+                        <div class="card-body">
+                            <Elements stripe={stripePromise}>
+                                <CheckoutForm payment={payment} />
+                            </Elements>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

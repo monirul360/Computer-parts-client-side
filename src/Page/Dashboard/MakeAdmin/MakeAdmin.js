@@ -14,7 +14,8 @@ const MakeAdmin = () => {
         return <Loading></Loading>
     }
     return (
-        <div>
+        <div className='bg-white m-12'>
+            <p className='p-4 bg-green-700 text-white'>Admin Route</p>
             <div class="overflow-x-auto p-3">
                 <table class="table table-zebra w-full">
                     <thead>

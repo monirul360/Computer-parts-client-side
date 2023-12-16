@@ -8,8 +8,10 @@ const MyorderRow = ({ order, index, setCancelmodal }) => {
                 <th>{index + 1}</th>
                 <td>{order.productName}</td>
                 <td>{order.customerName}</td>
+
                 <td>{order.paid ? <p>Paid</p>
                     : <Link className='btn btn-success btn-xs' to={`/dashboard/payment/${order._id}`}>Pay</Link>}</td>
+                <td>{order.price} USD</td>
                 <td>
                     {
                         order.paid ? <p>{order.transactionId}</p>
@@ -18,6 +20,7 @@ const MyorderRow = ({ order, index, setCancelmodal }) => {
                     }
 
                 </td>
+
             </tr>
 
         </>
