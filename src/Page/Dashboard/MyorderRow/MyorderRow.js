@@ -16,7 +16,7 @@ const MyorderRow = ({ order, index, setCancelmodal }) => {
                     {
                         order.paid ? <p>{order.transactionId}</p>
                             :
-                            <label onClick={() => setCancelmodal(order)} for="OrderCancel" class="btn btn-sm">Cancel</label>
+                            <label onClick={() => setCancelmodal(order)} for="OrderCancel" class="btn btn-sm bg-red-700 text-white border-none">Cancel</label>
                     }
 
                 </td>

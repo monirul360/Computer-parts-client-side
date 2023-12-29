@@ -12,7 +12,7 @@ const ReviewRow = ({ review }) => {
                 <div
                     class="block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
                     <div class="relative overflow-hidden bg-cover bg-no-repeat">
-                        <img style={{ "width": "100%", "height": "260px" }} src={review?.image} class="w-full rounded-t-lg" />
+                        <img style={{ "width": "100%", "height": "260px" }} src={review?.image} className="w-full rounded-t-lg" />
                         <a href="#!">
                             <div class="absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-fixed"></div>
                         </a>

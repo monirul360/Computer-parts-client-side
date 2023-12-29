@@ -3,6 +3,11 @@ import React from 'react';
 import { toast } from 'react-toastify';
 
 const OrderCancel = ({ cancelmodal, setCancelmodal }) => {
+
+    function refreshPage() {
+        window.location.reload(false);
+    }
+
     const { _id, } = cancelmodal;
     const handleDelete = () => {
         fetch(`http://localhost:5000/booking/${_id}`, {
@@ -14,6 +19,7 @@ const OrderCancel = ({ cancelmodal, setCancelmodal }) => {
                 if (data.deletedCount) {
                     toast.success(`'Cancel successful'`);
                     setCancelmodal(null);
+                    refreshPage();
                 }
             })
     }
@@ -24,8 +30,8 @@ const OrderCancel = ({ cancelmodal, setCancelmodal }) => {
                 <div class="modal-box">
                     <h3 class="font-bold text-lg">are you sure Order cancel</h3>
                     <div class="modal-action">
-                        <button onClick={() => handleDelete()} className='btn btn-sm'>Delete</button>
-                        <label for="OrderCancel" class="btn btn-sm">Cancel</label>
+                        <button onClick={() => handleDelete()} className='btn btn-sm bg-red-700 text-white border-none'>Delete</button>
+                        <label for="OrderCancel" class="btn btn-sm bg-green-700 text-white border-none">Cancel</label>
                     </div>
                 </div>
             </div>

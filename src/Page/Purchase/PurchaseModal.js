@@ -15,9 +15,9 @@ const PurchaseModal = ({ details, orderQuantity }) => {
             orderQuantity,
             price: details.price * orderQuantity,
             address: e.target.address.value,
+            photo: details.image,
             phone: e.target.number.value,
         };
-        console.log(orderDetails);
         const url = "http://localhost:5000/booking";
         fetch(url, {
             method: "POST",
@@ -28,7 +28,6 @@ const PurchaseModal = ({ details, orderQuantity }) => {
         })
             .then((res) => res.json())
             .then((data) => {
-                console.log(data);
                 navigate('/dashboard/order');
             });
     };

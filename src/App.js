@@ -22,6 +22,7 @@ import Payment from './Page/Dashboard/Payment/Payment';
 import Portfolio from './Page/Portfolio/Portfolio';
 import Blogs from './Page/Blogs/Blogs';
 import UpdateProfile from './Page/Dashboard/Profile/Updateprofile';
+import UserOder from './Page/Dashboard/UserOder/UserOder';
 function App() {
   return (
     <div>
@@ -44,6 +45,7 @@ function App() {
           <Route index element={<Profile></Profile>}></Route>
           <Route path='updateprofile' element={<UpdateProfile></UpdateProfile>}></Route>
           <Route path='order' element={<Myorder></Myorder>}></Route>
+          <Route path='alloder' element={<UserOder></UserOder>}></Route>
           <Route path='payment/:id' element={<Payment></Payment>}></Route>
           <Route path='addproduct' element={<PrivateAdmin><AddProduct></AddProduct></PrivateAdmin>}></Route>
           <Route path='manageProduct' element={<PrivateAdmin><ManageProduct></ManageProduct></PrivateAdmin>}></Route>

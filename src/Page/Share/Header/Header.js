@@ -82,8 +82,8 @@ const Header = () => {
                                 {admin ? <>
                                     <li><Link to='/dashboard/addproduct'>
                                         Add Product</Link></li>
-                                    <li><Link to='/dashboard/manageProduct'>Manage Products</Link></li>
-                                    <li><Link to='/'>Manage All Orders</Link></li>
+                                    <li><Link to='/dashboard/manageProduct'>All Products</Link></li>
+                                    <li><Link to='/dashboard/alloder'>All Oders</Link></li>
                                     <li><Link to='/dashboard/makeadmin'>Make Admin</Link></li>
 
                                 </>
@@ -93,7 +93,7 @@ const Header = () => {
 
                                 {/* ================= */}
 
-                                {user && <li><Link to="/dashboard/order">Dashboard</Link></li>}
+                                {user && <li><Link to="/dashboard/order">My Card</Link></li>}
                                 <li><button className='' onClick={logout}>Log out</button></li>
                             </ul>
                         </div>

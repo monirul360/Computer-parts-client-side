@@ -24,13 +24,28 @@ const MakeAdminRow = ({ user, refetch }) => {
                 }
             });
     }
+    // ====================
+
+    const handleDelete = () => {
+        fetch(`http://localhost:5000/user/${user?._id}`, {
+            method: 'DELETE',
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.deletedCount) {
+                    toast.success(`Delete user`);
+                    refetch();
+                }
+            })
+    }
+    // ===================
     return (
         <tbody>
             <tr className='border-b-2'>
                 <td>1</td>
                 <td>{email}</td>
                 <td>{role !== 'admin' && <button onClick={makeAdmin} class="btn btn-xs">Make Admin</button>}</td>
-                <td><button class="btn btn-xs">Remove User</button></td>
+                <td><button onClick={handleDelete} class="btn btn-xs">Remove</button></td>
             </tr>
         </tbody>
 
