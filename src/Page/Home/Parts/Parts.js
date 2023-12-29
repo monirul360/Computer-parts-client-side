@@ -5,11 +5,11 @@ import Partsrow from '../Parts-row/Parts-row';
 import { Link } from 'react-router-dom';
 
 const Parts = () => {
-    const { data: parts, isLoading, refetch } = useQuery("parts", () => fetch('http://localhost:5000/perts').then(res => res.json()))
+    const { data: parts, isLoading, refetch } = useQuery("parts", () => fetch('https://computer-parts.onrender.com/perts').then(res => res.json()))
     if (isLoading) {
         return <Loading></Loading>
     }
-    const sliceParts = parts.slice(0, 6);
+    const sliceParts = parts?.slice(0, 9);
     return (
         <>
             <div className='px-10 py-10' style={{ "background": "#EEEEEE" }}>
@@ -34,6 +34,7 @@ const Parts = () => {
                                 sliceParts.map(parts => <Partsrow
                                     key={parts._id}
                                     parts={parts}
+                                    refetch={refetch}
                                 ></Partsrow>)
                             }
                         </div>

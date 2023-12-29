@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Partsrow = ({ parts }) => {
     const { _id, name, description, price, image } = parts;
-    const sliceDes = description.slice(0, 100);
+    const sliceDes = description?.slice(0, 100);
     return (
         <div>
             <div class="relative flex w-full max-w-[26rem] flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-lg">

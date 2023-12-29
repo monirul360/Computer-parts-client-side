@@ -4,7 +4,7 @@ import Loading from '../../Loading/Loading';
 import MakeAdminRow from './MakeAdminRow';
 
 const MakeAdmin = () => {
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/user', {
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('https://computer-parts.onrender.com/user', {
         method: 'GET',
         headers: {
             authorization: `${localStorage.getItem('accesToken')}`

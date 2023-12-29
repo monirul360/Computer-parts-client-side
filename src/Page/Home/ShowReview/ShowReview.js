@@ -4,7 +4,7 @@ import Loading from '../../Loading/Loading';
 import ReviewRow from '../ReviewRow/ReviewRow';
 
 const ShowReview = () => {
-    const { data: review, isLoading, refetch } = useQuery("review", () => fetch('http://localhost:5000/review').then(res => res.json()))
+    const { data: review, isLoading, refetch } = useQuery("review", () => fetch('https://computer-parts.onrender.com/review').then(res => res.json()))
     if (isLoading) {
         return
     }

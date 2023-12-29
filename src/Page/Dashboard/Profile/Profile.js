@@ -18,7 +18,7 @@ const Profile = () => {
     const [user] = useAuthState(auth)
     const [profile, setProfile] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/users/${user?.email}`, {
+        fetch(`https://computer-parts.onrender.com/users/${user?.email}`, {
             method: 'GET',
             headers: {
                 'content-type': 'application/json',
@@ -60,7 +60,7 @@ const Profile = () => {
                         image: img,
                     }
                     // send to your database 
-                    fetch('http://localhost:5000/review', {
+                    fetch('https://computer-parts.onrender.com/review', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',
@@ -86,13 +86,13 @@ const Profile = () => {
     // show my review
 
 
-    const { data: showreview, isLoading, refetch } = useQuery("parts", () => fetch(`http://localhost:5000/moni?email=${user.email}`).then(res => res.json()))
+    const { data: showreview, isLoading, refetch } = useQuery("parts", () => fetch(`https://computer-parts.onrender.com/moni?email=${user.email}`).then(res => res.json()))
     if (isLoading) {
         return <Loading></Loading>
     }
     // review delete
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/review/${id}`, {
+        fetch(`https://computer-parts.onrender.com/review/${id}`, {
             method: 'DELETE',
         })
             .then(res => res.json())

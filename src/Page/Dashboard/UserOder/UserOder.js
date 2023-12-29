@@ -4,13 +4,13 @@ import Loading from '../../Loading/Loading';
 import { toast } from 'react-toastify';
 
 const UserOder = () => {
-    const { data: alloder, isLoading, refetch } = useQuery("parts", () => fetch('http://localhost:5000/useroder').then(res => res.json()))
+    const { data: alloder, isLoading, refetch } = useQuery("parts", () => fetch('https://computer-parts.onrender.com/useroder').then(res => res.json()))
     if (isLoading) {
         return <Loading></Loading>
     }
 
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/useroder/${id}`, {
+        fetch(`https://computer-parts.onrender.com/useroder/${id}`, {
             method: 'DELETE',
         })
             .then(res => res.json())

@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 const Managerow = ({ parts, index, refetch }) => {
     const { _id, name, image } = parts;
     const handleDelete = () => {
-        fetch(`http://localhost:5000/perts/${_id}`, {
+        fetch(`https://computer-parts.onrender.com/perts/${_id}`, {
             method: 'DELETE',
         })
             .then(res => res.json())

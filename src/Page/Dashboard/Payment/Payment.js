@@ -10,7 +10,7 @@ import CheckoutForm from '../CheckoutForm/CheckoutForm';
 const stripePromise = loadStripe('pk_test_51L2KrPBqppFXqmqSz2Xn8OFFJfwBYHRvMb60ebEL1qqM2uSzm89FmBxtXOw1lkd9OTv2oPeKgcxOOHa9l2WqOnpq00zF0D8T7j');
 const Payment = () => {
     const { id } = useParams();
-    const url = `http://localhost:5000/booking/${id}`;
+    const url = `https://computer-parts.onrender.com/booking/${id}`;
     const { data: payment, isLoading } = useQuery(["pay", id], () => fetch(url).then(res => res.json()))
     if (isLoading) {
         return <Loading></Loading>

@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 const MakeAdminRow = ({ user, refetch }) => {
     const { email, role } = user;
     const makeAdmin = () => {
-        fetch(`http://localhost:5000/user/admin/${email}`, {
+        fetch(`https://computer-parts.onrender.com/user/admin/${email}`, {
             method: 'PUT',
             headers: {
                 authraze: `${localStorage.getItem("AccesToken")}`
@@ -27,7 +27,7 @@ const MakeAdminRow = ({ user, refetch }) => {
     // ====================
 
     const handleDelete = () => {
-        fetch(`http://localhost:5000/user/${user?._id}`, {
+        fetch(`https://computer-parts.onrender.com/user/${user?._id}`, {
             method: 'DELETE',
         })
             .then(res => res.json())

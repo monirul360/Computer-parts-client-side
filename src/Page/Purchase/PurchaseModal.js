@@ -18,7 +18,7 @@ const PurchaseModal = ({ details, orderQuantity }) => {
             photo: details.image,
             phone: e.target.number.value,
         };
-        const url = "http://localhost:5000/booking";
+        const url = "https://computer-parts.onrender.com/booking";
         fetch(url, {
             method: "POST",
             headers: {
