@@ -1,5 +1,6 @@
 # Computer parts
-live site link : https://sympole-computer-parts.firebaseapp.com/
+live site link : https://cmt-parts.netlify.app/
+server code link : https://github.com/monirul360/Computer-parts-server-side
 # description 
 ## Computer Parts is a website that has all the components of a computer. Users will have a lot of fun using this site .. Everything is very comfortable.There are many features for users .Not only this, with the help of admin you can do a lot of featuring Users can buy all kinds of computer things from this website
 - The login system arrives
@@ -7,6 +8,7 @@ live site link : https://sympole-computer-parts.firebaseapp.com/
  - There is a route called Dashboard. From there the web site can be fully managed.
  - If the user does not login, you will not be able to do much
  - There are 2 different routes for users and admins
+ - payment gateway stripe
   - Admin will be product add   and remove does
   - If the admin wants, a user can admin. That system comes
   - The profile comes with a route. From there the user can view and update his profile
